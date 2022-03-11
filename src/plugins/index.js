@@ -1,2 +1,2 @@
 import './bootstrap4';
-import './vue-masonry';
+// import './vue-masonry';
