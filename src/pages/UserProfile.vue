@@ -66,7 +66,8 @@ export default {
         ]),
         getAvatar() {
             if(this.avatar.base64URL === '' && this.currentUser) {
-                return this.currentUser.avatar;
+                if(this.currentUser.avatar) return this.currentUser.avatar;
+			    return '/dist/images/default-avatar.png'
             } else {
                 return this.avatar.base64URL;
             }

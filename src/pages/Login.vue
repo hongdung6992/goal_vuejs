@@ -41,6 +41,7 @@ export default {
                 email: this.email,
                 password: this.password
             }
+            console.log('data', data)
             this.login(data).then(res => {
                 if(!res.ok) {
                     if(typeof res.error === 'string') {

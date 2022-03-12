@@ -16,6 +16,7 @@ import { mapState, mapActions } from 'vuex';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Loading from './components/Loading';
+import $ from "jquery";
 export default {
 	name: 'app',
 	components: {
@@ -42,9 +43,10 @@ export default {
 	},
 	created() {
 		this.checkLogin();
+		this.getListCategories()
 	},
 	methods: {
-		...mapActions([ 'checkLogin' ]),
+		...mapActions([ 'checkLogin', 'getListCategories' ])
 	}
 }
 </script>

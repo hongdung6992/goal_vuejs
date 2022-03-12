@@ -4,7 +4,7 @@
         <p v-else v-html="formatPostContent"></p>
         <div class="ass1-section__image">
             <router-link v-bind:to="getPostLink">
-                <img v-bind:src="post.url_image" v-bind:alt="post.content">
+                <img v-bind:src="urlImage" v-bind:alt="post.content">
             </router-link>
         </div>
     </div>
@@ -39,6 +39,10 @@ export default {
             } else {
                 return this.post.content;
             }
+        },
+        urlImage() {
+            if(this.post.url_image) return this.post.url_image;
+            return '/dist/images/cat-1634369_1920.jpg'
         }
     }
 }

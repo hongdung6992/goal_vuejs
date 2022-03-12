@@ -15,6 +15,8 @@ export default {
     SET_LOGIN_INFO(state, { user = null, token = '' }) {
         localStorage.setItem(CONFIG_ACCESS_TOKEN, token);
         state[CONFIG_ACCESS_TOKEN] = token;
+        var gender = user.gender ? 1 : 0;
+        user.gender = gender;
         state.currentUser = user;
     },
     SET_CURRENT_USER(state, user) {

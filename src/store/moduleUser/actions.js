@@ -108,9 +108,10 @@ export default {
             }
             
         } catch(error) {
+            commit('SET_LOGOUT');
             return {
                 ok: false,
-                error: error.message
+                error: error.response.data.message
             }
         }
     },

@@ -16,6 +16,7 @@
 
 <script>
 import PostCommentItem from './PostCommentItem';
+import { mapGetters } from 'vuex';
 export default {
     name: 'post-comments',
     components: {

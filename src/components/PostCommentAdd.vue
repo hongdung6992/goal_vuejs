@@ -1,12 +1,13 @@
 <template>
     <div class="ass1-add-comment">
-        <form action="#" v-on:submit.prevent="handleAddComment">
+        <form action="#" v-on:submit.prevent="handleAddComment" v-if="isLogin">
             <textarea 
                 v-model="comment"
                 class="form-control ttg-border-none" placeholder="Thêm một bình luận"></textarea>
                  <button v-on:click.prevent="handleAddComment" type="submit" class="mt-2 ass1-btn">Bình luận</button>
         </form>
-        <div class="ass1-add-comment__content">
+        <div v-else><router-link to="/login">Đăng nhập</router-link> để tham gia bình luận</div>
+        <div class="ass1-add-comment__content" v-if="isLogin">
             <a href="#" 
                 v-on:click.prevent="handleAddComment"
                 class="ass1-add-comment__btn-save ass1-btn-icon"><span>{{ renderMaxLength }}</span><i class="icon-Submit_Tick"></i></a>
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
     name: 'post-comment-add',
     data() {
@@ -33,7 +34,8 @@ export default {
     computed: {
         renderMaxLength() {
             return this.maxLength - this.comment.length
-        }
+        },
+        ...mapGetters([ 'isLogin'])
     },
     methods: {
         ...mapActions([ 'addNewComment' ]),

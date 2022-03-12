@@ -6,7 +6,7 @@
                 <div class="ass1-header__nav" style="display: none;">
                     <div class="container">
                         <ul>
-                            <li v-for="item in categories" v-bind:key="item.id">
+                            <li v-on:click.prevent="closeNavigation" v-for="item in categories" v-bind:key="item.id">
                                 <router-link v-bind:to="getLinkCategory(item)" class="item">{{ item.title }}</router-link>
                             </li>
                         </ul>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import $ from "jquery";
 import { removeVietnameseFromString } from '../helpers';
 import { mapGetters, mapActions } from 'vuex';
 export default {
@@ -38,6 +39,9 @@ export default {
                     category_id: category.id
                 }
             }
+        },
+        closeNavigation() {
+            $('.ass1-header__nav').slideUp(300, 'swing');
         }
     },
     computed: {

@@ -48,12 +48,8 @@ export default {
 	},
 	mounted() {
 		$(".ass1-header__menu li > a").click(function(e) {
-            // $(".ass1-header__nav").hide();
             $(this).parent().find(".ass1-header__nav").slideToggle(300, 'swing');
 		});
-		$(".ass1-header__nav ul li > a").click(function(e) {
-			$(this).parents('.ass1-header__nav').slideUp(300, 'swing')
-		})
 	},
 	computed: {
 		...mapGetters([ 'isLogin', 'currentUser' ]),
