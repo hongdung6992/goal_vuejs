@@ -7,7 +7,6 @@
         </div>
         <div 
             v-if="listPostSearch && listPostSearch.length"
-            v-masonry
             column-width='.grid-sizer'
             transition-duration="0.3s" 
             item-selector=".ass1-section__item"
@@ -16,7 +15,6 @@
             <div class="grid-sizer"></div>
             
             <post-item 
-                v-masonry-tile
                 v-for="item in listPostSearch"
                 v-bind:key="item.id"
                 v-bind:post="item"
@@ -66,7 +64,7 @@ export default {
                         this.listPostSearch = res.posts;
                         
                         // Data changed
-                        this.$redrawVueMasonry();
+                        // this.$redrawVueMasonry();
                     }
                 })
             }

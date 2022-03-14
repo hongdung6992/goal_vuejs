@@ -5,7 +5,6 @@
             v-bind:userInfor="userInfor" />
         <div 
             v-if="listPostOfUser && listPostOfUser.length"
-            v-masonry
             column-width='.grid-sizer'
             transition-duration="0.3s" 
             item-selector=".ass1-section__item"
@@ -13,8 +12,7 @@
             
             <div class="grid-sizer"></div>
             
-            <post-item 
-                v-masonry-tile
+            <post-item
                 v-for="item in listPostOfUser"
                 v-bind:key="item.PID"
                 v-bind:post="item"
@@ -81,7 +79,7 @@ export default {
                 this.listPostOfUser = resultPostUser.posts;
 
                 // Data changed
-                this.$redrawVueMasonry();
+                // this.$redrawVueMasonry();
             } else {
                 this.$router.push('/');
             }
